@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Project_01.DTO.User;
-using Project_01.Models;
 using Project_01.Services;
 
 namespace Project_01.Controllers

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IDMY2KAkI68=",
+  "dgSpecHash": "t9TLT4wq6+Y=",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\Documents\\GitHub\\CSharp\\Project_01\\Project_01.csproj",
+  "projectFilePath": "C:\\Users\\admin\\Documents\\GitHub\\Restful-API-Security-JWT-CSharp\\Project_01.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

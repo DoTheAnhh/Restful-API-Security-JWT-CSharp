@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\Documents\\GitHub\\CSharp\\Project_01\\Project_01.csproj": {}
+    "C:\\Users\\admin\\Documents\\GitHub\\Restful-API-Security-JWT-CSharp\\Project_01.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\Documents\\GitHub\\CSharp\\Project_01\\Project_01.csproj": {
+    "C:\\Users\\admin\\Documents\\GitHub\\Restful-API-Security-JWT-CSharp\\Project_01.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Documents\\GitHub\\CSharp\\Project_01\\Project_01.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\Documents\\GitHub\\Restful-API-Security-JWT-CSharp\\Project_01.csproj",
         "projectName": "Project_01",
-        "projectPath": "C:\\Users\\admin\\Documents\\GitHub\\CSharp\\Project_01\\Project_01.csproj",
+        "projectPath": "C:\\Users\\admin\\Documents\\GitHub\\Restful-API-Security-JWT-CSharp\\Project_01.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Documents\\GitHub\\CSharp\\Project_01\\obj\\",
+        "outputPath": "C:\\Users\\admin\\Documents\\GitHub\\Restful-API-Security-JWT-CSharp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

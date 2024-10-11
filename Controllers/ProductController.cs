@@ -17,7 +17,6 @@ public class ProductController : ControllerBase
      }
 
      [HttpGet]
-     [Authorize(Policy = "AdminOnly")]
      public ActionResult<List<ProductResponse>> GetAllProducts()
      {
           try
@@ -50,6 +49,7 @@ public class ProductController : ControllerBase
      }
 
      [HttpPost("insert")]
+     [Authorize(Policy = "AdminOnly")]
      public ActionResult InsertProduct([FromBody] ProductRequest productRequest)
      {
           try
@@ -68,6 +68,7 @@ public class ProductController : ControllerBase
      }
 
      [HttpPut("edit/{id}")]
+     [Authorize(Policy = "AdminOnly")]
      public ActionResult EditProduct(int id, [FromBody] ProductRequest productRequest)
      {
           try
