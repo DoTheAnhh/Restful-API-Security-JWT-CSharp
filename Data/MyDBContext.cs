@@ -15,5 +15,6 @@ namespace Project_01.Data
         public DbSet<Type> Types { get; set; }
         public DbSet<User> Users { get; set; }
         #endregion
+
     }
 }

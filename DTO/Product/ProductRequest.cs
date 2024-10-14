@@ -14,5 +14,6 @@ public class ProductRequest
 
     public string ProductDescription { get; set; }
     
+    [Required]
     public int TypeId { get; set; }
 }

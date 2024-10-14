@@ -24,7 +24,7 @@ public class TypeService : ITypeService
 
     public TypeResponse getTypeById(int id)
     {
-        var type = _context.Types.FirstOrDefault(t => t.TypeId == id);
+        var type = _context.Types.FirstOrDefault(t => t.Id == id);
         if (type == null)
         {
             throw new KeyNotFoundException($"Type with id {id} not found.");
@@ -41,7 +41,7 @@ public class TypeService : ITypeService
 
     public void updateType(TypeRequest typeRequest, int id)
     {
-        var type = _context.Types.FirstOrDefault(t => t.TypeId == id);
+        var type = _context.Types.FirstOrDefault(t => t.Id == id);
         if (type == null)
         {
             throw new KeyNotFoundException($"Type with id {id} not found.");

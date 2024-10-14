@@ -36,7 +36,7 @@ namespace Project_01.Services.impl
             }
 
             var user = _mapper.Map<User>(registerRequest);
-            user.PasswordHash = HashPassword(registerRequest.Password); // Băm mật khẩu
+            user.PasswordHash = HashPassword(registerRequest.Password);
             user.Role = "User";
 
             _context.Users.Add(user);
@@ -81,11 +81,12 @@ namespace Project_01.Services.impl
         
         private string HashPassword(string password)
         {
-            return _passwordHasher.HashPassword(null, password);
+            return _passwordHasher.HashPassword(new User(), password);
         }
 
         private bool VerifyPassword(string password, string storedHash)
         {
+            Console.WriteLine($"Stored Hash: {storedHash}");
             var result = _passwordHasher.VerifyHashedPassword(null, storedHash, password);
             return result == PasswordVerificationResult.Success;
         }

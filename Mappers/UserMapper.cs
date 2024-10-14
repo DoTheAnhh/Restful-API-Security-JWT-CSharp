@@ -10,8 +10,8 @@ public class UserMapper : Profile
     {
         CreateMap<User, UserResponse>();
 
-        CreateMap<LoginRequest, User>(); // Ánh xạ Email
+        CreateMap<LoginRequest, User>();
 
-        CreateMap<RegisterRequest, User>(); // Ánh xạ UserName
+        CreateMap<RegisterRequest, User>();
     }
 }

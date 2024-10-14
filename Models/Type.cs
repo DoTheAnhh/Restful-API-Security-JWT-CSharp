@@ -4,11 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Project_01.Models
 {
     [Table(name: "Type")]
-    public class Type
+    public class Type : PrimaryEntity
     {
-        [Key]
-        public int TypeId { get; set; }
-
         [Required]
         [MaxLength(100)]
         public string TypeName { get; set; }

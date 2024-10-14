@@ -31,7 +31,7 @@ public class ProductService : IProductService
 
     public ProductResponse findProductById(int id)
     {
-        var product = _context.Products.Include(p => p.Type).FirstOrDefault(p => p.ProductId == id);
+        var product = _context.Products.Include(p => p.Type).FirstOrDefault(p => p.Id == id);
         if (product == null)
         {
             throw new KeyNotFoundException($"Product with id {id} not found.");
@@ -48,7 +48,7 @@ public class ProductService : IProductService
 
     public void editProduct(ProductRequest productRequest, int id)
     {
-        var product = _context.Products.FirstOrDefault(p => p.ProductId == id);
+        var product = _context.Products.FirstOrDefault(p => p.Id == id);
         if (product == null)
         {
             throw new KeyNotFoundException($"Product with id {id} not found.");
