@@ -434,5 +434,3 @@ C:\Users\admin\Documents\GitHub\Restful-API-Security-JWT-CSharp\obj\Debug\net8.0
 C:\Users\admin\Documents\GitHub\Restful-API-Security-JWT-CSharp\obj\Debug\net8.0\Project_01.pdb
 C:\Users\admin\Documents\GitHub\Restful-API-Security-JWT-CSharp\obj\Debug\net8.0\Project_01.genruntimeconfig.cache
 C:\Users\admin\Documents\GitHub\Restful-API-Security-JWT-CSharp\obj\Debug\net8.0\ref\Project_01.dll
-C:\Users\admin\Documents\GitHub\Restful-API-Security-JWT-CSharp\bin\Debug\net8.0\Mapster.dll
-C:\Users\admin\Documents\GitHub\Restful-API-Security-JWT-CSharp\bin\Debug\net8.0\Mapster.Core.dll

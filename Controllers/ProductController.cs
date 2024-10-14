@@ -30,7 +30,7 @@ public class ProductController : ControllerBase
           }
      }
 
-     [HttpGet("{id}")]
+     [HttpGet("{id:int}")]
      public ActionResult<ProductResponse> GetProductById(int id)
      {
           try
@@ -67,7 +67,7 @@ public class ProductController : ControllerBase
           }
      }
 
-     [HttpPut("edit/{id}")]
+     [HttpPut("edit/{id:int}")]
      [Authorize(Policy = "AdminOnly")]
      public ActionResult EditProduct(int id, [FromBody] ProductRequest productRequest)
      {
@@ -90,7 +90,7 @@ public class ProductController : ControllerBase
           }
      }
      
-     [HttpGet("type/{typeId}")]
+     [HttpGet("type/{typeId:int}")]
      public ActionResult<List<ProductResponse>> GetProductsByTypeId(int typeId)
      {
           try
