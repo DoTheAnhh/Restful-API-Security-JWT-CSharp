@@ -9,7 +9,6 @@
       "Project_01/1.0.0": {
         "dependencies": {
           "AutoMapper": "13.0.1",
-          "Mapster": "7.4.1-pre01",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore": "8.0.10",
@@ -71,25 +70,6 @@
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
-          }
-        }
-      },
-      "Mapster/7.4.1-pre01": {
-        "dependencies": {
-          "Mapster.Core": "1.2.2-pre01"
-        },
-        "runtime": {
-          "lib/net8.0/Mapster.dll": {
-            "assemblyVersion": "7.4.1.0",
-            "fileVersion": "7.4.1.0"
-          }
-        }
-      },
-      "Mapster.Core/1.2.2-pre01": {
-        "runtime": {
-          "lib/net8.0/Mapster.Core.dll": {
-            "assemblyVersion": "1.2.2.0",
-            "fileVersion": "1.2.2.0"
           }
         }
       },
@@ -1029,20 +1009,6 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
-    },
-    "Mapster/7.4.1-pre01": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-b7YEDoh4nuODGF7wUjgkxA3bTLLt7TxfPkKiFQTgCrNYHem1VVaJyXgsG9RVeQQ44+hoo69IfqENNKn0ox9ddg==",
-      "path": "mapster/7.4.1-pre01",
-      "hashPath": "mapster.7.4.1-pre01.nupkg.sha512"
-    },
-    "Mapster.Core/1.2.2-pre01": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-FuNCfTHytW9yeSuGHZ9f8u4cgbzhPL0GqoypA4LD99m0zkafs73IcaMxmbUtYjRThof+Z+jcEQ/suVYTkMpTkA==",
-      "path": "mapster.core/1.2.2-pre01",
-      "hashPath": "mapster.core.1.2.2-pre01.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.0": {
       "type": "package",

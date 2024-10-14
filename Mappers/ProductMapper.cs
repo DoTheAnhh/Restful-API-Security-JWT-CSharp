@@ -10,7 +10,8 @@ public class ProductMapper : Profile
     {
         CreateMap<Product, ProductResponse>()
             .ForMember(dest => dest.TypeName, opt => opt.MapFrom(src => src.Type.TypeName));
-
-        CreateMap<ProductRequest, Product>();
+        
+        CreateMap<ProductRequest, Product>()
+            .ForMember(dest => dest.Type, opt => opt.Ignore());
     }
 }
