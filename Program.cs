@@ -1,8 +1,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Project_01.Data;
 using Project_01.Models;
@@ -38,6 +37,7 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
+// Cấu hình quyền hạn
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
@@ -80,14 +80,59 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddAutoMapper(typeof(Program));
-
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ProductRepository>();
 
 var app = builder.Build();
 
-// Cấu hình middleware
+// Tạo dữ liệu seed khi bảng User rỗng
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<MyDBContext>();
+
+    // Kiểm tra nếu bảng User rỗng
+    if (!context.Users.Any())
+    {
+        SeedUsers(context);
+    }
+}
+
+// Phương thức Seed dữ liệu người dùng
+void SeedUsers(MyDBContext context)
+{
+    var users = new[]
+    {
+        new User
+        {
+            UserName = "admin",
+            Email = "admin@example.com",
+            PasswordHash = HashPassword("123"),
+            Role = "Admin"
+        },
+        new User
+        {
+            UserName = "user",
+            Email = "user@example.com",
+            PasswordHash = HashPassword("123"),
+            Role = "User"
+        }
+    };
+
+    context.Users.AddRange(users);
+    context.SaveChanges();
+}
+
+// Phương thức hash mật khẩu
+string HashPassword(string password)
+{
+    using (var hmac = new System.Security.Cryptography.HMACSHA256())
+    {
+        var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+        return Convert.ToBase64String(hash);
+    }
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -95,11 +140,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
-
-// Định tuyến các controller
 app.MapControllers();
-
 app.Run();
