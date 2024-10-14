@@ -1,37 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Project_01.Models;
+namespace Project_01.DTO.ProductDetail;
 
-[Table(name: "ProductDetail")]
-public class ProductDetail : PrimaryEntity
+public class ProductDetailRequest
 {
     [Required(ErrorMessage = "Product quantity is required")]
-    public int Quantity { get; set; }
+    public int Quantity;
     
     [Required(ErrorMessage = "Product price is required")]
     [Range(0, double.MaxValue)]
     public double Price { get; set; }
     
-    [Required(ErrorMessage = "Status is required")]
+    [Required(ErrorMessage = "Product price is required")]
     public bool Status { get; set; } = true;
     
     [Required(ErrorMessage = "Color is required")]
     public int ColorId { get; set; }
-
-    [ForeignKey("ColorId")]
-    public Color Color { get; set; }
         
     [Required(ErrorMessage = "Size is required")]
     public int SizeId { get; set; }
-
-    [ForeignKey("SizeId")]
-    public Size Size { get; set; }
     
     [Required(ErrorMessage = "Product is required")]
     public int ProductId { get; set; }
-
-    [ForeignKey("ProductId")]
-    public Product Product { get; set; }
 }
-

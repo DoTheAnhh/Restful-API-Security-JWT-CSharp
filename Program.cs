@@ -81,9 +81,13 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddAutoMapper(typeof(Program));
 
-builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ProductRepository>();
+
+builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
+builder.Services.AddScoped<ProductDetailRepository>();
 
 var app = builder.Build();
 

@@ -25,13 +25,19 @@ public class ProductService : IProductService
     
     public List<ProductResponse> getAllProduct()
     {
-        var products = _context.Products.Include(p => p.Type).ToList();
+        var products = _context.Products
+                                                    .Include(p => p.Type)
+                                                    .Include(p => p.Brand)
+                                                    .ToList();
         return _mapper.Map<List<ProductResponse>>(products);
     }
 
     public ProductResponse findProductById(int id)
     {
-        var product = _context.Products.Include(p => p.Type).FirstOrDefault(p => p.Id == id);
+        var product = _context.Products
+                                        .Include(p => p.Type)
+                                        .Include(p => p.Brand)
+                                        .FirstOrDefault(p => p.Id == id);
         if (product == null)
         {
             throw new KeyNotFoundException($"Product with id {id} not found.");

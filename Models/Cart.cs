@@ -1,6 +1,9 @@
-﻿namespace Project_01.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-public class Cart
+namespace Project_01.Models;
+
+[Table(name: "Cart")]
+public class Cart : PrimaryEntity
 {
     
 }
