@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Project_01.Data;
-using Project_01.DTO.Product;
 using Project_01.DTO.ProductDetail;
 using Project_01.Models;
 using Project_01.Repositories;

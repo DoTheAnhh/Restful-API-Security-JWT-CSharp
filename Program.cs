@@ -89,6 +89,14 @@ builder.Services.AddScoped<ProductRepository>();
 builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
 builder.Services.AddScoped<ProductDetailRepository>();
 
+builder.Services.AddScoped<ITypeService, TypeService>();
+
+builder.Services.AddScoped<IBrandService, BrandService>();
+
+builder.Services.AddScoped<IColorService, ColorService>();
+
+builder.Services.AddScoped<ISizeService, SizeService>();
+
 var app = builder.Build();
 
 // Cấu hình middleware

@@ -1,28 +1,28 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Project_01.DTO.Type;
+using Project_01.DTO.Color;
 using Project_01.Services;
 
-namespace Project_01.DTO;
+namespace Project_01.Controllers;
 
-[Route("/type")]
+[Route("/color")]
 [ApiController]
-public class TypeController : ControllerBase
+public class ColorController : ControllerBase
 {
-    private readonly ITypeService _typeService;
+    private readonly IColorService _colorService;
 
-    public TypeController(ITypeService typeService)
+    public ColorController(IColorService colorService)
     {
-        _typeService = typeService;
+        _colorService = colorService;
     }
     
     [HttpGet]
-    public ActionResult<List<TypeResponse>> GetAllTypes()
+    public ActionResult<List<ColorResponse>> GetAllColors()
     {
         try
         {
-            var type = _typeService.getAllTypes();
-            return Ok(type);
+            var color = _colorService.GetAllColors();
+            return Ok(color);
         }
         catch (Exception ex)
         {
@@ -31,16 +31,16 @@ public class TypeController : ControllerBase
     }
     
     [HttpGet("{id:int}")]
-    public ActionResult<TypeResponse> GetTypeById(int id)
+    public ActionResult<ColorResponse> GetColorById(int id)
     {
         try
         {
-            var type = _typeService.getTypeById(id);
-            if (type == null)
+            var color = _colorService.GetColorById(id);
+            if (color == null)
             {
-                return NotFound($"Type with ID {id} not found.");
+                return NotFound($"Color with ID {id} not found.");
             }
-            return Ok(type);
+            return Ok(color);
         }
         catch (Exception ex)
         {
@@ -50,16 +50,16 @@ public class TypeController : ControllerBase
     
     [HttpPost("insert")]
     [Authorize(Policy = "AdminOnly")]
-    public ActionResult InsertType([FromBody] TypeRequest typeRequest)
+    public ActionResult InsertColor([FromBody] ColorRequest colorRequest)
     {
         try
         {
             if (ModelState.IsValid)
             {
-                _typeService.insertType(typeRequest);
-                return Ok("Type added successfully.");
+                _colorService.InsertColor(colorRequest);
+                return Ok("Color added successfully.");
             }
-            return BadRequest("Invalid type data.");
+            return BadRequest("Invalid color data.");
         }
         catch (Exception ex)
         {
@@ -69,16 +69,16 @@ public class TypeController : ControllerBase
     
     [HttpPut("edit/{id:int}")]
     [Authorize(Policy = "AdminOnly")]
-    public ActionResult EditType(int id, [FromBody] TypeRequest typeRequest)
+    public ActionResult EditColor(int id, [FromBody] ColorRequest colorRequest)
     {
         try
         {
             if (ModelState.IsValid)
             {
-                _typeService.updateType(typeRequest, id);
-                return Ok("Type updated successfully.");
+                _colorService.EditColor(colorRequest, id);
+                return Ok("Color updated successfully.");
             }
-            return BadRequest("Invalid type data.");
+            return BadRequest("Invalid color data.");
         }
         catch (KeyNotFoundException ex)
         {

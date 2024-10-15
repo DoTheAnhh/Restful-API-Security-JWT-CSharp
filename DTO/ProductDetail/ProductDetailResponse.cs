@@ -2,6 +2,8 @@
 
 public class ProductDetailResponse
 {
+    public int Id { get; set; }
+    
     public int Quantity;
     
     public double Price { get; set; }

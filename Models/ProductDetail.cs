@@ -33,5 +33,11 @@ public class ProductDetail : PrimaryEntity
 
     [ForeignKey("ProductId")]
     public Product Product { get; set; }
+    
+    [Required(ErrorMessage = "Cart is required")]
+    public int CartId { get; set; }
+    
+    [ForeignKey("CartId")]
+    public Cart Cart { get; set; }
 }
 

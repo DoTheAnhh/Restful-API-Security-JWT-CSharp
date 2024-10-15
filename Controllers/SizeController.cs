@@ -1,28 +1,28 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Project_01.DTO.Type;
+using Project_01.DTO.Size;
 using Project_01.Services;
 
-namespace Project_01.DTO;
+namespace Project_01.Controllers;
 
-[Route("/type")]
+[Route("/size")]
 [ApiController]
-public class TypeController : ControllerBase
+public class SizeController : ControllerBase
 {
-    private readonly ITypeService _typeService;
+    private readonly ISizeService _sizeService;
 
-    public TypeController(ITypeService typeService)
+    public SizeController(ISizeService sizeService)
     {
-        _typeService = typeService;
+        _sizeService = sizeService;
     }
     
     [HttpGet]
-    public ActionResult<List<TypeResponse>> GetAllTypes()
+    public ActionResult<List<SizeResponse>> GetAllSizes()
     {
         try
         {
-            var type = _typeService.getAllTypes();
-            return Ok(type);
+            var size = _sizeService.GetAllSizes();
+            return Ok(size);
         }
         catch (Exception ex)
         {
@@ -31,16 +31,16 @@ public class TypeController : ControllerBase
     }
     
     [HttpGet("{id:int}")]
-    public ActionResult<TypeResponse> GetTypeById(int id)
+    public ActionResult<SizeResponse> GetSizeById(int id)
     {
         try
         {
-            var type = _typeService.getTypeById(id);
-            if (type == null)
+            var size = _sizeService.GetSizeById(id);
+            if (size == null)
             {
-                return NotFound($"Type with ID {id} not found.");
+                return NotFound($"Size with ID {id} not found.");
             }
-            return Ok(type);
+            return Ok(size);
         }
         catch (Exception ex)
         {
@@ -50,16 +50,16 @@ public class TypeController : ControllerBase
     
     [HttpPost("insert")]
     [Authorize(Policy = "AdminOnly")]
-    public ActionResult InsertType([FromBody] TypeRequest typeRequest)
+    public ActionResult InsertSize([FromBody] SizeRequest sizeRequest)
     {
         try
         {
             if (ModelState.IsValid)
             {
-                _typeService.insertType(typeRequest);
-                return Ok("Type added successfully.");
+                _sizeService.InsertSize(sizeRequest);
+                return Ok("Size added successfully.");
             }
-            return BadRequest("Invalid type data.");
+            return BadRequest("Invalid size data.");
         }
         catch (Exception ex)
         {
@@ -69,16 +69,16 @@ public class TypeController : ControllerBase
     
     [HttpPut("edit/{id:int}")]
     [Authorize(Policy = "AdminOnly")]
-    public ActionResult EditType(int id, [FromBody] TypeRequest typeRequest)
+    public ActionResult EditSize(int id, [FromBody] SizeRequest sizeRequest)
     {
         try
         {
             if (ModelState.IsValid)
             {
-                _typeService.updateType(typeRequest, id);
-                return Ok("Type updated successfully.");
+                _sizeService.EditSize(sizeRequest, id);
+                return Ok("Size updated successfully.");
             }
-            return BadRequest("Invalid type data.");
+            return BadRequest("Invalid size data.");
         }
         catch (KeyNotFoundException ex)
         {

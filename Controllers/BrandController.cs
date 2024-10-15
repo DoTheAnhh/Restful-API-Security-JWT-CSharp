@@ -1,28 +1,28 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Project_01.DTO.Type;
+using Project_01.DTO.Brand;
 using Project_01.Services;
 
-namespace Project_01.DTO;
+namespace Project_01.Controllers;
 
-[Route("/type")]
+[Route("/brand")]
 [ApiController]
-public class TypeController : ControllerBase
+public class BrandController : ControllerBase
 {
-    private readonly ITypeService _typeService;
+    private readonly IBrandService _brandService;
 
-    public TypeController(ITypeService typeService)
+    public BrandController(IBrandService brandService)
     {
-        _typeService = typeService;
+        _brandService = brandService;
     }
     
     [HttpGet]
-    public ActionResult<List<TypeResponse>> GetAllTypes()
+    public ActionResult<List<BrandResponse>> GetAllBrands()
     {
         try
         {
-            var type = _typeService.getAllTypes();
-            return Ok(type);
+            var brand = _brandService.getAllBrands();
+            return Ok(brand);
         }
         catch (Exception ex)
         {
@@ -31,16 +31,16 @@ public class TypeController : ControllerBase
     }
     
     [HttpGet("{id:int}")]
-    public ActionResult<TypeResponse> GetTypeById(int id)
+    public ActionResult<BrandResponse> GetBrandById(int id)
     {
         try
         {
-            var type = _typeService.getTypeById(id);
-            if (type == null)
+            var brand = _brandService.getBrandById(id);
+            if (brand == null)
             {
-                return NotFound($"Type with ID {id} not found.");
+                return NotFound($"Brand with ID {id} not found.");
             }
-            return Ok(type);
+            return Ok(brand);
         }
         catch (Exception ex)
         {
@@ -50,16 +50,16 @@ public class TypeController : ControllerBase
     
     [HttpPost("insert")]
     [Authorize(Policy = "AdminOnly")]
-    public ActionResult InsertType([FromBody] TypeRequest typeRequest)
+    public ActionResult InsertBrand([FromBody] BrandRequest brandRequest)
     {
         try
         {
             if (ModelState.IsValid)
             {
-                _typeService.insertType(typeRequest);
-                return Ok("Type added successfully.");
+                _brandService.insertBrand(brandRequest);
+                return Ok("Brand added successfully.");
             }
-            return BadRequest("Invalid type data.");
+            return BadRequest("Invalid brand data.");
         }
         catch (Exception ex)
         {
@@ -69,16 +69,16 @@ public class TypeController : ControllerBase
     
     [HttpPut("edit/{id:int}")]
     [Authorize(Policy = "AdminOnly")]
-    public ActionResult EditType(int id, [FromBody] TypeRequest typeRequest)
+    public ActionResult EditBrand(int id, [FromBody] BrandRequest brandRequest)
     {
         try
         {
             if (ModelState.IsValid)
             {
-                _typeService.updateType(typeRequest, id);
-                return Ok("Type updated successfully.");
+                _brandService.editBrand(brandRequest, id);
+                return Ok("Brand updated successfully.");
             }
-            return BadRequest("Invalid type data.");
+            return BadRequest("Invalid brand data.");
         }
         catch (KeyNotFoundException ex)
         {
